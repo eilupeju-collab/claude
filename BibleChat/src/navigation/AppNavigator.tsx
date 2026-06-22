@@ -17,7 +17,14 @@ import BreathingScreen from '../screens/Meditation/BreathingScreen';
 import PrayerScreen from '../screens/Prayer/PrayerScreen';
 import PrayerJournalScreen from '../screens/Prayer/PrayerJournalScreen';
 import DiscoverScreen from '../screens/Discover/DiscoverScreen';
+import DailyPlanScreen from '../screens/Discover/DailyPlanScreen';
+import StudyPlanScreen from '../screens/Discover/StudyPlanScreen';
+import AskBibleScreen from '../screens/Discover/AskBibleScreen';
+import BibleTriviaScreen from '../screens/Discover/BibleTriviaScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
+import PanicButtonScreen from '../screens/Wellness/PanicButtonScreen';
+import MoodTrackerScreen from '../screens/Wellness/MoodTrackerScreen';
+import OnboardingScreen from '../screens/Onboarding/OnboardingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -47,6 +54,18 @@ function PrayStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="PrayHome" component={PrayerScreen} />
       <Stack.Screen name="PrayerJournal" component={PrayerJournalScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function DiscoverStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="DiscoverHome" component={DiscoverScreen} />
+      <Stack.Screen name="DailyPlan" component={DailyPlanScreen} />
+      <Stack.Screen name="StudyPlan" component={StudyPlanScreen} />
+      <Stack.Screen name="AskBible" component={AskBibleScreen} />
+      <Stack.Screen name="BibleTrivia" component={BibleTriviaScreen} />
     </Stack.Navigator>
   );
 }
@@ -84,7 +103,7 @@ function MainTabs() {
       <Tab.Screen name="Bible" component={BibleStack} />
       <Tab.Screen name="Meditate" component={MeditateStack} />
       <Tab.Screen name="Pray" component={PrayStack} />
-      <Tab.Screen name="Discover" component={DiscoverScreen} />
+      <Tab.Screen name="Discover" component={DiscoverStack} />
     </Tab.Navigator>
   );
 }
@@ -93,8 +112,11 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="MainTabs" component={MainTabs} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="PanicButton" component={PanicButtonScreen} />
+        <Stack.Screen name="MoodTracker" component={MoodTrackerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

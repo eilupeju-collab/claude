@@ -1,0 +1,156 @@
+// Bible Chat — Study Plans & Calendar Data
+
+import type { StudyPlan, CalendarEvent, DailyPlan } from '../types';
+
+export const STUDY_PLANS: StudyPlan[] = [
+  {
+    id: 'plan-anxiety',
+    title: 'Overcoming Anxiety',
+    description: 'A 7-day journey to finding peace in God\'s promises when worry overwhelms.',
+    topic: 'anxiety',
+    totalDays: 7,
+    isPremium: false,
+    days: [
+      {
+        day: 1,
+        title: 'God Is With You',
+        reading: 'Isaiah 41:10',
+        reflection: 'God promises to be with you and strengthen you. What anxious thought can you surrender to Him today?',
+        prayer: 'Lord, I confess my anxiety to You. Help me to trust that You are with me, strengthening me even now.',
+        actionStep: 'Write down your top 3 worries and physically hand the paper to God in prayer.',
+        isCompleted: false,
+      },
+      {
+        day: 2,
+        title: 'Cast Your Cares',
+        reading: '1 Peter 5:6-7',
+        reflection: 'God cares for you — deeply and personally. What burden have you been carrying alone?',
+        prayer: 'Father, I cast all my anxiety on You because I know You care for me. Give me the faith to let go.',
+        actionStep: 'Practice the "Be Still" breathing exercise for 5 minutes today.',
+        isCompleted: false,
+      },
+      {
+        day: 3,
+        title: 'Peace Beyond Understanding',
+        reading: 'Philippians 4:6-7',
+        reflection: 'Paul says to pray about everything and worry about nothing. What would change if you truly lived this way?',
+        prayer: 'God of peace, guard my heart and mind in Christ Jesus. Replace my worry with Your supernatural peace.',
+        actionStep: 'Each time anxiety rises today, pause and pray the verse aloud.',
+        isCompleted: false,
+      },
+
+      {
+        day: 4,
+        title: 'God\'s Perfect Love',
+        reading: '1 John 4:18',
+        reflection: 'Perfect love drives out fear. How does knowing God\'s love change your relationship with anxiety?',
+        prayer: 'Jesus, fill me with Your perfect love that drives out every fear. Let me rest in Your embrace.',
+        actionStep: 'Meditate on "God loves me" for 3 minutes, breathing slowly.',
+        isCompleted: false,
+      },
+      {
+        day: 5,
+        title: 'Do Not Worry',
+        reading: 'Matthew 6:25-34',
+        reflection: 'Jesus points us to birds and flowers — creatures without anxiety. What does this teach you about trust?',
+        prayer: 'Lord, forgive me for worrying about tomorrow. Help me seek Your kingdom first and trust You for the rest.',
+        actionStep: 'Spend 10 minutes outside noticing nature. Thank God for His provision.',
+        isCompleted: false,
+      },
+      {
+        day: 6,
+        title: 'Strength in Weakness',
+        reading: '2 Corinthians 12:9-10',
+        reflection: 'When you feel weak, God\'s power is made perfect. How is He working through your struggles?',
+        prayer: 'Father, I boast in my weakness so that Your power may rest on me. Be my strength today.',
+        actionStep: 'Share one struggle with a trusted friend and ask them to pray for you.',
+        isCompleted: false,
+      },
+      {
+        day: 7,
+        title: 'A Future of Hope',
+        reading: 'Jeremiah 29:11-13',
+        reflection: 'God has plans to prosper you. Looking back over this week, how has your perspective shifted?',
+        prayer: 'Lord, thank You for Your plans for my future. I choose hope over fear, trust over anxiety. Amen.',
+        actionStep: 'Write a letter to yourself about what you\'ve learned. Read it next time anxiety comes.',
+        isCompleted: false,
+      },
+    ],
+  },
+  {
+    id: 'plan-forgiveness',
+    title: 'The Power of Forgiveness',
+    description: 'A 14-day plan to release bitterness and walk in the freedom of forgiveness.',
+    topic: 'forgiveness',
+    totalDays: 14,
+    isPremium: false,
+    days: [
+      {
+        day: 1,
+        title: 'Forgiven to Forgive',
+        reading: 'Ephesians 4:31-32',
+        reflection: 'God forgave you completely through Christ. How does receiving forgiveness empower you to give it?',
+        prayer: 'Lord, thank You for forgiving me. Soften my heart toward those who have hurt me.',
+        actionStep: 'Name one person you need to forgive. Hold them in prayer without judgment.',
+        isCompleted: false,
+      },
+      {
+        day: 2,
+        title: 'Seventy Times Seven',
+        reading: 'Matthew 18:21-35',
+        reflection: 'Jesus says forgiveness has no limit. What does this parable reveal about your own heart?',
+        prayer: 'Father, help me forgive as generously as You forgive me — without keeping count.',
+        actionStep: 'Journal about a hurt you\'re holding onto. Ask God to begin healing it.',
+        isCompleted: false,
+      },
+    ],
+  },
+  {
+    id: 'plan-purpose',
+    title: 'Finding Your Purpose',
+    description: 'A 21-day journey discovering God\'s unique calling on your life.',
+    topic: 'purpose',
+    totalDays: 21,
+    isPremium: true,
+    days: [
+      {
+        day: 1,
+        title: 'Fearfully & Wonderfully Made',
+        reading: 'Psalm 139:13-16',
+        reflection: 'God created you with intention and purpose. What unique gifts has He placed within you?',
+        prayer: 'Creator God, thank You for making me with purpose. Open my eyes to see what You see in me.',
+        actionStep: 'List 5 things you\'re naturally good at. Ask God how He wants to use them.',
+        isCompleted: false,
+      },
+    ],
+  },
+];
+
+export const CALENDAR_EVENTS: CalendarEvent[] = [
+  { id: 'cal-1', title: 'Advent Begins', date: '2024-12-01', type: 'liturgical', description: 'The season of preparation for Christmas begins.', color: '#7B68AE', scriptures: ['Isaiah 9:6', 'Luke 1:26-38'] },
+  { id: 'cal-2', title: 'Christmas Day', date: '2024-12-25', type: 'holy_day', description: 'Celebration of the birth of Jesus Christ.', color: '#C5A55A', scriptures: ['Luke 2:1-20', 'Matthew 1:18-25'] },
+  { id: 'cal-3', title: 'Epiphany', date: '2025-01-06', type: 'holy_day', description: 'The revelation of God incarnate as Jesus Christ.', color: '#C5A55A', scriptures: ['Matthew 2:1-12'] },
+  { id: 'cal-4', title: 'Ash Wednesday', date: '2025-03-05', type: 'liturgical', description: 'The beginning of Lent — 40 days of fasting and repentance.', color: '#7B68AE', scriptures: ['Joel 2:12-13', 'Matthew 6:16-18'] },
+  { id: 'cal-5', title: 'Palm Sunday', date: '2025-04-13', type: 'liturgical', description: 'Jesus\' triumphant entry into Jerusalem.', color: '#4A6FA5', scriptures: ['Matthew 21:1-11', 'John 12:12-19'] },
+  { id: 'cal-6', title: 'Good Friday', date: '2025-04-18', type: 'holy_day', description: 'The crucifixion and death of Jesus Christ.', color: '#1A1A2E', scriptures: ['John 19:16-30', 'Isaiah 53'] },
+  { id: 'cal-7', title: 'Easter Sunday', date: '2025-04-20', type: 'holy_day', description: 'The resurrection of Jesus Christ — He is risen!', color: '#C5A55A', scriptures: ['Matthew 28:1-10', 'John 20:1-18'] },
+  { id: 'cal-8', title: 'Pentecost', date: '2025-06-08', type: 'liturgical', description: 'The coming of the Holy Spirit upon the apostles.', color: '#E87E6C', scriptures: ['Acts 2:1-13'] },
+  { id: 'cal-9', title: 'St. Patrick\'s Day', date: '2025-03-17', type: 'saint', description: 'Patron saint of Ireland, missionary and evangelist.', color: '#81C784' },
+  { id: 'cal-10', title: 'All Saints\' Day', date: '2024-11-01', type: 'saint', description: 'Honoring all saints, known and unknown.', color: '#FFB74D', scriptures: ['Revelation 7:9-17'] },
+];
+
+export const SAMPLE_DAILY_PLAN: DailyPlan = {
+  date: new Date().toISOString().split('T')[0],
+  morningVerse: {
+    id: 'daily-morning',
+    book: 'Lamentations',
+    chapter: 3,
+    verse: 22,
+    text: 'Because of the LORD\'s great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.',
+    translation: 'NIV',
+  },
+  devotional: 'Every morning is a fresh start with God. His mercies don\'t carry over from yesterday — they are brand new, tailor-made for today\'s challenges. Whatever happened before this moment, God\'s compassion meets you right here, right now. You are not defined by yesterday\'s failures or tomorrow\'s fears. You are held by a faithful God whose love never runs out.',
+  prayerPrompt: 'Lord, thank You for new mercies this morning. Help me to see Your faithfulness in the small moments today. Give me eyes to notice Your compassion at work in my life.',
+  meditationSuggestion: 'Try the "Morning Awakening" meditation (5 min) to start your day centered on God\'s presence.',
+  eveningGratitude: 'Before bed tonight, name 3 specific things God did for you today — however small. Write them down.',
+};
