@@ -1,0 +1,61 @@
+<!--
+  Open this file in a browser to generate app icons.
+  Or use any image editor to create a 512x512 icon with:
+  - Background: #4A6FA5 (primary blue)
+  - White "B" in the center (bold, serif font)
+  - Round corners for the maskable version
+  
+  Required sizes: 72, 96, 128, 144, 152, 192, 384, 512
+  
+  You can also use tools like:
+  - https://maskable.app/editor (for maskable icons)
+  - https://realfavicongenerator.net (generates all sizes)
+  - https://www.pwabuilder.com/imageGenerator (PWA icon generator)
+-->
+<html>
+<body style="text-align:center; padding:40px;">
+<h2>Bible Chat Icon Generator</h2>
+<p>Right-click each canvas and "Save Image As" to get your icons</p>
+<div id="icons"></div>
+<script>
+const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+const container = document.getElementById('icons');
+sizes.forEach(size => {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  
+  // Background
+  ctx.fillStyle = '#4A6FA5';
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, size * 0.2);
+  ctx.fill();
+  
+  // Letter B
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = `bold ${size * 0.55}px Georgia, serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('B', size / 2, size / 2 + size * 0.02);
+  
+  // Cross accent
+  ctx.strokeStyle = '#C5A55A';
+  ctx.lineWidth = size * 0.02;
+  ctx.beginPath();
+  ctx.moveTo(size * 0.72, size * 0.18);
+  ctx.lineTo(size * 0.72, size * 0.35);
+  ctx.moveTo(size * 0.65, size * 0.25);
+  ctx.lineTo(size * 0.79, size * 0.25);
+  ctx.stroke();
+  
+  const label = document.createElement('div');
+  label.style.margin = '10px';
+  label.style.display = 'inline-block';
+  label.innerHTML = `<p>${size}x${size}</p>`;
+  label.appendChild(canvas);
+  container.appendChild(label);
+});
+</script>
+</body>
+</html>
