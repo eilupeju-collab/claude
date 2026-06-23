@@ -26,7 +26,17 @@ const FEATURES = [
   { id: 'kids', title: 'Kids\' Stories', desc: 'Bible stories for little ones', icon: 'star-outline' as const, color: '#F48FB1' },
 ];
 
-export default function DiscoverScreen() {
+export default function DiscoverScreen({ navigation }: any) {
+  const handleFeaturePress = (id: string) => {
+    switch (id) {
+      case 'ai': navigation.navigate('AskBible'); break;
+      case 'trivia': navigation.navigate('BibleTrivia'); break;
+      case 'calendar': navigation.navigate('Calendar'); break;
+      case 'kids': navigation.navigate('KidsBible'); break;
+      default: break;
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
@@ -41,7 +51,7 @@ export default function DiscoverScreen() {
           <Text style={styles.sectionTitle}>FEATURES</Text>
           <View style={styles.featuresGrid}>
             {FEATURES.map((feature) => (
-              <Pressable key={feature.id} style={styles.featureCard}>
+              <Pressable key={feature.id} style={styles.featureCard} onPress={() => handleFeaturePress(feature.id)}>
                 <View style={[styles.featureIcon, { backgroundColor: feature.color + '15' }]}>
                   <Ionicons name={feature.icon} size={24} color={feature.color} />
                 </View>
@@ -62,7 +72,7 @@ export default function DiscoverScreen() {
           </View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {STUDY_PLANS.map((plan) => (
-              <Pressable key={plan.id} style={styles.planCard}>
+              <Pressable key={plan.id} style={styles.planCard} onPress={() => navigation.navigate('StudyPlan', { planId: `plan-${plan.topic}` })}>
                 <View style={[styles.planColor, { backgroundColor: plan.color }]} />
                 <View style={styles.planContent}>
                   <Text style={styles.planTitle}>{plan.title}</Text>
@@ -73,9 +83,27 @@ export default function DiscoverScreen() {
           </ScrollView>
         </View>
 
+        {/* Today's Plan */}
+        <View style={styles.section}>
+          <Card style={styles.blessingCard} onPress={() => navigation.navigate('DailyPlan')}>
+            <View style={styles.blessingContent}>
+              <View style={[styles.blessingIcon, { backgroundColor: Colors.primary }]}>
+                <Ionicons name="today-outline" size={28} color="#fff" />
+              </View>
+              <View style={styles.blessingText}>
+                <Text style={styles.blessingTitle}>Today's Plan</Text>
+                <Text style={styles.blessingDesc}>
+                  Your daily spiritual rhythm — verse, prayer, meditation
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.textTertiary} />
+            </View>
+          </Card>
+        </View>
+
         {/* Send a Blessing */}
         <View style={styles.section}>
-          <Card style={styles.blessingCard} onPress={() => {}}>
+          <Card style={styles.blessingCard} onPress={() => navigation.navigate('SendBlessing')}>
             <View style={styles.blessingContent}>
               <View style={styles.blessingIcon}>
                 <Ionicons name="gift-outline" size={28} color="#fff" />
@@ -84,6 +112,24 @@ export default function DiscoverScreen() {
                 <Text style={styles.blessingTitle}>Send a Blessing</Text>
                 <Text style={styles.blessingDesc}>
                   Pick a verse and send encouragement to a friend
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.textTertiary} />
+            </View>
+          </Card>
+        </View>
+
+        {/* Live Prayer */}
+        <View style={styles.section}>
+          <Card style={styles.blessingCard} onPress={() => navigation.navigate('LivePrayer')}>
+            <View style={styles.blessingContent}>
+              <View style={[styles.blessingIcon, { backgroundColor: '#E87E6C' }]}>
+                <Ionicons name="people-outline" size={28} color="#fff" />
+              </View>
+              <View style={styles.blessingText}>
+                <Text style={styles.blessingTitle}>Live Prayer Wall</Text>
+                <Text style={styles.blessingDesc}>
+                  Pray with others and share what's on your heart
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={20} color={Colors.textTertiary} />

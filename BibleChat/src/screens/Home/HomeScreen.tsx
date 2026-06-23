@@ -91,7 +91,7 @@ export default function HomeScreen({ navigation }: any) {
               icon="flash-outline"
               label="Panic"
               color="#FFB74D"
-              onPress={() => {}}
+              onPress={() => navigation.navigate('PanicButton')}
             />
           </View>
         </View>
